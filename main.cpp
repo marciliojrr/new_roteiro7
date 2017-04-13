@@ -1,70 +1,76 @@
-#include "funcionario.h"
-#include "consultor.h"
+#include "figgeometrica.h"
+#include "retangulo.h"
+#include "triangulo.h"
+#include "circulo.h"
 
 int main () {
-    int m, opcao;
-    string n;
-    float s;
-    while (opcao != 3) {
-        cout << "Inserir informacoes para qual tipo:" << endl
-        << "Funcionario Geral  [1]" << endl
-        << "Consultor          [2]" << endl
-        << "Sair               [3]" << endl
-        << ">> ";
-        cin >> opcao;
+    int opcao = 0;
+    int b, a;
+    float r;
+
+    while (opcao != 4) {
+    cout << "Digite a opcao desejada para calcular sua area:" << endl
+    << "- Retangulo [1]" << endl
+    << "- Triangulo [2]" << endl
+    << "- Circulo   [3]" << endl
+    << "- Sair      [4]" << endl
+    << endl <<
+    ">> ";
+    cin >> opcao;
     switch(opcao) {
-        case 1:
-            cout << "Digite a matricula do funcionario:" << endl << ">> ";
-            cin >> m;
-                while (m <= 0) {
-                    cout << "Numero de matricula invalida." << endl << ">> ";
-                    cin >> m;
-                }
-            cout << "Digite o nome do funcionario:" << endl << ">> ";
-            cin >> n;
-            cout << "Digite o salario do funcionario:" << endl << ">> ";
-            cin >> s;
-                while (s <= 0) {
-                    cout << "Valor de salario invalido." << endl << ">> ";
-                    cin >> s;
-                }
-            cout << endl << endl;
-            break;
-        case 2:
-            cout << "Digite a matricula do funcionario:" << endl << ">> ";
-            cin >> m;
-                while (m <= 0) {
-                    cout << "Numero de matricula invalida.";
-                    cin >> m;
-                }
-            cout << "Digite o nome do funcionario:" << endl << ">> ";
-            cin >> n;
-            cout << "Digite o salario do funcionario:" << endl << ">> ";
-            cin >> s;
-                while (s <= 0) {
-                    cout << "Valor de salario invalido.";
-                    cin >> s;
-                }
-            cout << endl << endl;
-            break;
+    case 1:
+        cout << "Digite o valor da base: ";
+        cin >> b;
+        while (b <= 0) {
+            cout << "Valor de base invalida!";
+            cin >> b;
+        }
+        cout << "Digite o valor da altura: ";
+        cin >> a;
+        while (a <= 0) {
+            cout << "Valor de altura invalido!";
+            cin >> a;
+        }
+        break;
+    case 2:
+        cout << "Digite o valor da base: ";
+        cin >> b;
+        while (b <= 0) {
+            cout << "Valor de base invalida!";
+            cin >> b;
+        }
+        cout << "Digite o valor da altura: ";
+        cin >> a;
+        while (a <= 0) {
+            cout << "Valor de altura invalido!";
+            cin >> a;
+        }
+        break;
+    case 3:
+        cout << "Digite o valor do raio: ";
+        cin >> r;
+        while (r <= 0) {
+            cout << "Valor de raio invalida!";
+            cin >> r;
+        }
+        break;
     }
     if (opcao == 1) {
-        Funcionario padrao (m,n,s);
-        padrao.setSal(s);
-        cout << "Funcionario: " << padrao.getNome() << endl
-        << "Matricula: " << padrao.getMat() << endl
-        << "Salario: R$ " <<padrao.getSal() << endl << endl << "--------------" << endl << endl;
-    }
+        Retangulo retang(b, a);
+        retang.CalculaArea();
+        cout << "A figura e um: " << retang.getNome() << endl;
+        }
     if (opcao == 2) {
-        Consultor consult(m,n,s);
-        consult.setSalario();
-        cout << "Funcionario: " << consult.getNome() << endl
-        << "Matricula: " << consult.getMat() << endl
-        << "Novo salario: R$ " << consult.getSal() << endl << endl << "--------------" << endl << endl;
+        Triangulo triang(b, a);
+        triang.CalculaArea();
+        cout << "A figura e um: " << triang.getNome() << endl;
+        }
+    if (opcao == 3) {
+        Circulo circ(r);
+        circ.CalculaArea();
+        cout << "A figura e um: " << circ.getNome() << endl;
+        }
     }
-    if (opcao == 3){
-        return 0;
-    }
-    return main();
-    }
+    return 0;
 }
+
